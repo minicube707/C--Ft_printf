@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printinteger2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmotte <fmotte@student.42.fr>              +#+  +:+       +#+        */
+/*   By: florent <florent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 17:54:57 by fmotte            #+#    #+#             */
-/*   Updated: 2025/12/12 18:04:46 by fmotte           ###   ########.fr       */
+/*   Updated: 2025/12/13 00:29:54 by florent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_putnbr(char *string, int nb)
 {
 	if (nb == -2147483648)
 	{
-		ft_strlcpy(string, "-2147483648", 11);
+		ft_strlcpy(string, "-2147483648", 12);
 		return (string);
 	}
 	if (nb < 0)
@@ -69,3 +69,4 @@ int	get_max(t_flags *catch_flags, char *res)
 		max = catch_flags->dot;
 	return (max);
 }
+ 

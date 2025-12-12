@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printinteger.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmotte <fmotte@student.42.fr>              +#+  +:+       +#+        */
+/*   By: florent <florent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 22:11:22 by marvin            #+#    #+#             */
-/*   Updated: 2025/12/12 18:04:52 by fmotte           ###   ########.fr       */
+/*   Updated: 2025/12/13 00:47:37 by florent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,10 @@ int	printinteger(t_flags *catch_flags, int num)
 {
 	int		n;
 	int		max;
-	char	buff[12];
+	char	buff[32];
 	char	*res;
 
-	ft_bzero(buff, 12);
+	ft_bzero(buff, 32);
 	res = ft_putnbr(buff, num);
 	max = get_max(catch_flags, res);
 	n = 0;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printunsignedinteger.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmotte <fmotte@student.42.fr>              +#+  +:+       +#+        */
+/*   By: florent <florent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 01:23:44 by marvin            #+#    #+#             */
-/*   Updated: 2025/12/12 18:05:49 by fmotte           ###   ########.fr       */
+/*   Updated: 2025/12/13 00:47:52 by florent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,10 @@ int	printunsignedinteger(t_flags *catch_flags, unsigned int num)
 {
 	int		n;
 	int		max;
-	char	buff[11];
+	char	buff[32];
 	char	*res;
 
-	ft_bzero(buff, 11);
+	ft_bzero(buff, 32);
 	res = ft_putusignednnbr(buff, num);
 	max = get_max(catch_flags, res);
 	n = 0;

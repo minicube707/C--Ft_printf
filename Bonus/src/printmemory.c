@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printmemory.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmotte <fmotte@student.42.fr>              +#+  +:+       +#+        */
+/*   By: florent <florent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 00:34:45 by marvin            #+#    #+#             */
-/*   Updated: 2025/12/12 18:04:20 by fmotte           ###   ########.fr       */
+/*   Updated: 2025/12/13 00:05:08 by florent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,13 @@ int	printmemory(t_flags *catch_flags, void *addr)
 {
 	unsigned char	*cast;
 	unsigned long	address;
-	char			buff[13];
+	char			buff[17];
 	char			*res;
 
 	(void)catch_flags;
 	cast = (unsigned char *)addr;
 	address = (unsigned long)&cast[0];
-	ft_bzero(buff, 13);
+	ft_bzero(buff, 17);
 	res = ft_puthexnbr(buff, address, 0);
 	if (catch_flags->minus)
 		return (printmemory_minus(catch_flags, address, res));

@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printchar.c                                        :+:      :+:    :+:   */
+/*   ft_puthexnbr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmotte <fmotte@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/10 22:48:44 by marvin            #+#    #+#             */
-/*   Updated: 2025/12/12 17:48:37 by fmotte           ###   ########.fr       */
+/*   Created: 2025/12/12 17:49:47 by fmotte            #+#    #+#             */
+/*   Updated: 2025/12/12 18:06:20 by fmotte           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	printchar(t_flags *catch_flags, char c)
+char	*ft_puthexnbr(char *string, unsigned long nb, int mode)
 {
-	int	i;
-	int	n;
+	char	*base;
 
-	i = 0;
-	n = 0;
-	if (!catch_flags->minus)
+	if (mode)
+		base = "0123456789ABCDEF";
+	else
+		base = "0123456789abcdef";
+	if (nb > 15)
 	{
-		while (i++ < catch_flags->number - 1)
-			n += write(1, " ", 1);
-		n += write(1, &c, 1);
-		return (n);
+		string = ft_puthexnbr(string, nb / 16, mode);
+		ft_puthexnbr(string, nb % 16, mode);
 	}
-	n += write(1, &c, 1);
-	if (catch_flags->minus)
-	{
-		while (i++ < catch_flags->number - 1)
-			n += write(1, " ", 1);
-	}
-	return (n);
+	else
+		string[ft_strlen(string)] = base[nb];
+	return (string);
 }

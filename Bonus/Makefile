@@ -15,11 +15,13 @@ FILE_NAMES = 	ft_printf \
 				get_flags \
 				mini_libft \
 				manage_string \
+				ft_puthexnbr \
 				printchar \
 				printstring \
 				printmemory \
 				printhexadecimal \
 				printinteger \
+				printinteger2 \
 				printunsignedinteger \
 
 # =======================================

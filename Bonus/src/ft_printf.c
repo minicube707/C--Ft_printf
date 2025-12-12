@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmotte <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: fmotte <fmotte@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 09:20:57 by fmotte            #+#    #+#             */
-/*   Updated: 2025/05/16 16:16:01 by fmotte           ###   ########.fr       */
+/*   Updated: 2025/12/12 17:47:24 by fmotte           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_printf(const char *str, ...)
 	int		i;
 	int		n;
 	va_list	args;
-	t_flags catch_flags;
+	t_flags	catch_flags;
 
 	i = 0;
 	n = 0;
@@ -27,7 +27,7 @@ int	ft_printf(const char *str, ...)
 		if (str[i] != '%')
 			n += write(1, &str[i], 1);
 		else
-		{	
+		{
 			reset_flags(&catch_flags);
 			if (get_flags(&catch_flags, &str[i + 1], &i))
 				return (-1);

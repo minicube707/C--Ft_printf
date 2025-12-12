@@ -1,0 +1,71 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   printinteger2.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fmotte <fmotte@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/12 17:54:57 by fmotte            #+#    #+#             */
+/*   Updated: 2025/12/12 18:04:46 by fmotte           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
+char	*ft_putnbr(char *string, int nb)
+{
+	if (nb == -2147483648)
+	{
+		ft_strlcpy(string, "-2147483648", 11);
+		return (string);
+	}
+	if (nb < 0)
+	{
+		string[0] = '-';
+		return (ft_putnbr(string, -nb));
+	}
+	if (nb > 9)
+	{
+		string = ft_putnbr(string, nb / 10);
+		ft_putnbr(string, nb % 10);
+	}
+	else
+		string[ft_strlen(string)] = nb + 48;
+	return (string);
+}
+
+int	printinteger_minus(t_flags *catch_flags, int max)
+{
+	int	i;
+	int	n;
+
+	i = 0;
+	n = 0;
+	while (i++ < catch_flags->number - max - catch_flags->plus
+		&& catch_flags->minus)
+		n += write(1, " ", 1);
+	return (n);
+}
+
+int	printinteger_dot(t_flags *catch_flags, char *res)
+{
+	int	i;
+	int	n;
+
+	i = 0;
+	n = 0;
+	while (i++ < catch_flags->dot - ft_strlen(res))
+		n += write(1, "0", 1);
+	return (n);
+}
+
+int	get_max(t_flags *catch_flags, char *res)
+{
+	int	max;
+
+	if ((ft_strlen(res)) > catch_flags->dot)
+		max = ft_strlen(res);
+	else
+		max = catch_flags->dot;
+	return (max);
+}

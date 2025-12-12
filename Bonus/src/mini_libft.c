@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_libft.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fmotte <fmotte@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 22:13:21 by marvin            #+#    #+#             */
-/*   Updated: 2025/12/10 22:13:21 by marvin           ###   ########.fr       */
+/*   Updated: 2025/12/12 17:48:13 by fmotte           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	res *= signe;
-    return (res);
+	return (res);
 }
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
@@ -77,10 +77,10 @@ void	*ft_bzero(void *ptr, size_t num)
 	unsigned char	*p;
 
 	i = 0;
-	p = (unsigned char *) ptr;
+	p = (unsigned char *)ptr;
 	while (i < num)
 	{
-		p[i] = (unsigned char) 0;
+		p[i] = (unsigned char)0;
 		i++;
 	}
 	return (ptr);

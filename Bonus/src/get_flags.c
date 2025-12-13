@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_flags.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmotte <fmotte@student.42.fr>              +#+  +:+       +#+        */
+/*   By: florent <florent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 21:50:51 by marvin            #+#    #+#             */
-/*   Updated: 2025/12/12 17:47:52 by fmotte           ###   ########.fr       */
+/*   Updated: 2025/12/13 01:28:04 by florent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	reset_flags(t_flags *catch_flags)
 {
 	catch_flags->dot = 0;
+	catch_flags->dot_val = 0;
 	catch_flags->minus = 0;
 	catch_flags->number = 0;
 	catch_flags->plus = 0;
@@ -62,15 +63,14 @@ static void	get_flags_catch_type(t_flags *catch_flags, const char *string)
 		catch_flags->type = 0;
 }
 
-static void	get_flags_utils(t_flags *catch_flags, const char *string, int i,
-		int *dot)
+static void	get_flags_utils(t_flags *catch_flags, const char *string, int i)
 {
-	if (ft_isdigit((int)string[i]) && !(*dot))
+	if (ft_isdigit((int)string[i]) && !catch_flags->dot)
 		catch_flags->number = (string[i] - 48) + (catch_flags->number * 10);
-	if (ft_isdigit((int)string[i]) && (*dot))
-		catch_flags->dot = (string[i] - 48) + (catch_flags->dot * 10);
+	if (ft_isdigit((int)string[i]) && catch_flags->dot)
+		catch_flags->dot_val = (string[i] - 48) + (catch_flags->dot_val * 10);
 	else if (string[i] == '.')
-		*dot = 1;
+		catch_flags->dot = 1;
 	else if (string[i] == '-')
 		catch_flags->minus = 1;
 	else if (string[i] == '+')
@@ -87,16 +87,14 @@ int	get_flags(t_flags *catch_flags, const char *string, int *j)
 {
 	char	*allow_char;
 	int		i;
-	int		dot;
 
 	allow_char = "0123456789.-+# ";
 	i = 0;
-	dot = 0;
 	while (string[i] != 0 && !in("cspdiuxX%", string[i]))
 	{
 		if (!in(allow_char, string[i]))
 			return (1);
-		get_flags_utils(catch_flags, string, i, &dot);
+		get_flags_utils(catch_flags, string, i);
 		i++;
 		(*j)++;
 	}

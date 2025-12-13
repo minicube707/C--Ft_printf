@@ -6,7 +6,7 @@
 /*   By: florent <florent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 01:00:08 by marvin            #+#    #+#             */
-/*   Updated: 2025/12/13 00:48:34 by florent          ###   ########.fr       */
+/*   Updated: 2025/12/13 01:29:27 by florent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	printhexadecimal_dot(t_flags *catch_flags, char *res)
 
 	i = 0;
 	n = 0;
-	while (i++ < catch_flags->dot - ft_strlen(res))
+	while (i++ < catch_flags->dot_val - ft_strlen(res))
 		n += write(1, "0", 1);
 	return (n);
 }

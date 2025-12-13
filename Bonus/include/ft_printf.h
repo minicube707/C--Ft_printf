@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmotte <fmotte@student.42.fr>              +#+  +:+       +#+        */
+/*   By: florent <florent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 15:01:43 by fmotte            #+#    #+#             */
-/*   Updated: 2025/12/12 18:05:21 by fmotte           ###   ########.fr       */
+/*   Updated: 2025/12/13 01:26:20 by florent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_flags
 	int	type;
 	int	minus;
 	int	dot;
+	int	dot_val;
 	int	number;
 	int	plus;
 	int	space;

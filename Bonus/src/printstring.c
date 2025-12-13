@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printstring.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmotte <fmotte@student.42.fr>              +#+  +:+       +#+        */
+/*   By: florent <florent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 23:17:06 by marvin            #+#    #+#             */
-/*   Updated: 2025/12/12 17:41:21 by fmotte           ###   ########.fr       */
+/*   Updated: 2025/12/13 01:28:49 by florent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ static int	printstring_dot(t_flags *catch_flags, char *string)
 
 	i = 0;
 	n = 0;
-	if (string == NULL && catch_flags->dot > 5)
+	if (string == NULL && catch_flags->dot_val > 5)
 		string = "(null)";
-	if (string == NULL && catch_flags->dot <= 5)
+	if (string == NULL && catch_flags->dot_val <= 5)
 		string = "";
-	while (i < catch_flags->dot && string[i] != '\0')
+	while (i < catch_flags->dot_val && string[i] != '\0')
 	{
 		n += write(1, &string[i], 1);
 		i++;

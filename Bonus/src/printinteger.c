@@ -6,7 +6,7 @@
 /*   By: florent <florent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 22:11:22 by marvin            #+#    #+#             */
-/*   Updated: 2025/12/13 00:47:37 by florent          ###   ########.fr       */
+/*   Updated: 2025/12/13 01:12:39 by florent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,14 @@ static int	printinteger_space(t_flags *catch_flags, int num)
 	n = 0;
 	if (catch_flags->space && num > 0)
 		n += write(1, " ", 1);
+	if (num < 0)
+		n += write(1, "-", 1);
 	return (n);
 }
 
 int	printinteger(t_flags *catch_flags, int num)
 {
+	int 	i;
 	int		n;
 	int		max;
 	char	buff[32];
@@ -64,7 +67,14 @@ int	printinteger(t_flags *catch_flags, int num)
 	n += printinteger_skip_begin(catch_flags, max);
 	n += printinteger_plus(catch_flags, num);
 	n += printinteger_dot(catch_flags, res);
-	n += write(1, res, ft_strlen(res));
+	i = 0;
+	if (num < 0)
+		i = 1;	
+	while (res[i] != '\0')
+	{
+		n += write(1, &res[i], 1);
+		i++;
+	}
 	n += printinteger_minus(catch_flags, max);
 	return (n);
 }

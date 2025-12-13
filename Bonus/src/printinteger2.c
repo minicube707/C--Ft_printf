@@ -6,7 +6,7 @@
 /*   By: florent <florent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 17:54:57 by fmotte            #+#    #+#             */
-/*   Updated: 2025/12/13 00:29:54 by florent          ###   ########.fr       */
+/*   Updated: 2025/12/13 01:30:37 by florent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	printinteger_dot(t_flags *catch_flags, char *res)
 
 	i = 0;
 	n = 0;
-	while (i++ < catch_flags->dot - ft_strlen(res))
+	while (i++ < catch_flags->dot_val - ft_strlen(res))
 		n += write(1, "0", 1);
 	return (n);
 }
@@ -63,10 +63,10 @@ int	get_max(t_flags *catch_flags, char *res)
 {
 	int	max;
 
-	if ((ft_strlen(res)) > catch_flags->dot)
+	if ((ft_strlen(res)) > catch_flags->dot_val)
 		max = ft_strlen(res);
 	else
-		max = catch_flags->dot;
+		max = catch_flags->dot_val;
 	return (max);
 }
  

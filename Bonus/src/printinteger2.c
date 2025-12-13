@@ -6,7 +6,7 @@
 /*   By: florent <florent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 17:54:57 by fmotte            #+#    #+#             */
-/*   Updated: 2025/12/13 01:30:37 by florent          ###   ########.fr       */
+/*   Updated: 2025/12/13 01:51:57 by florent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,14 @@ int	printinteger_dot(t_flags *catch_flags, char *res)
 {
 	int	i;
 	int	n;
-
+	int negatif;
+	
 	i = 0;
 	n = 0;
-	while (i++ < catch_flags->dot_val - ft_strlen(res))
+	negatif = 0;
+	if (res[0] == '-')
+		negatif = 1;
+	while (i++ < catch_flags->dot_val - ft_strlen(res) + negatif)
 		n += write(1, "0", 1);
 	return (n);
 }

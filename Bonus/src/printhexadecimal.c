@@ -6,7 +6,7 @@
 /*   By: florent <florent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 01:00:08 by marvin            #+#    #+#             */
-/*   Updated: 2025/12/13 01:29:27 by florent          ###   ########.fr       */
+/*   Updated: 2025/12/13 02:31:11 by florent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	printhexadecimal_minus(t_flags *catch_flags, int max)
 
 	i = 0;
 	n = 0;
-	while (i++ < catch_flags->number - max - catch_flags->plus
+	while (i++ < catch_flags->number - max - catch_flags->plus - (catch_flags->sharp * 2)
 		&& catch_flags->minus)
 		n += write(1, " ", 1);
 	return (n);
@@ -45,11 +45,11 @@ static int	printhexadecimal_skip_begin(t_flags *catch_flags, int max)
 	n = 0;
 	i = 0;
 	while (i++ < catch_flags->number - max - catch_flags->space
-		- catch_flags->plus && !catch_flags->minus && !catch_flags->zeros)
+		- catch_flags->plus - (catch_flags->sharp * 2) && !catch_flags->minus && !catch_flags->zeros)
 		n += write(1, " ", 1);
 	i = 0;
 	while (i++ < catch_flags->number - max - catch_flags->space
-		- catch_flags->plus && !catch_flags->minus && catch_flags->zeros)
+		- catch_flags->plus - (catch_flags->sharp * 2) && !catch_flags->minus && catch_flags->zeros)
 		n += write(1, "0", 1);
 	return (n);
 }
@@ -67,6 +67,13 @@ int	printhexadecimal(t_flags *catch_flags, unsigned int num, int mode)
 	n = 0;
 	n += printhexadecimal_skip_begin(catch_flags, max);
 	n += printhexadecimal_dot(catch_flags, res);
+	if (catch_flags->sharp && num != 0)
+	{
+		if (mode)
+			n += write(1, "0X", 2);
+		else
+			n += write(1, "0x", 2);
+	}
 	n += write(1, res, ft_strlen(res));
 	n += printhexadecimal_minus(catch_flags, max);
 	return (n);

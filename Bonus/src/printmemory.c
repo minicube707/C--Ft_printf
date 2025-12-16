@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printmemory.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: florent <florent@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fmotte <fmotte@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 00:34:45 by marvin            #+#    #+#             */
-/*   Updated: 2025/12/13 00:47:23 by florent          ###   ########.fr       */
+/*   Updated: 2025/12/16 13:17:40 by fmotte           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	printmemory(t_flags *catch_flags, void *addr)
 	res = ft_puthexnbr(buff, address, 0);
 	return (printmemory_minus(catch_flags, address, res));
 	if (catch_flags->number != 0)
-	if (catch_flags->minus)
-		return (printmemory_num(catch_flags, address, res));
+		if (catch_flags->minus)
+			return (printmemory_num(catch_flags, address, res));
 	return (printmemory_else(address, res));
 }

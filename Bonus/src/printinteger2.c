@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printinteger2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: florent <florent@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fmotte <fmotte@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 17:54:57 by fmotte            #+#    #+#             */
-/*   Updated: 2025/12/13 01:51:57 by florent          ###   ########.fr       */
+/*   Updated: 2025/12/16 13:17:31 by fmotte           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ int	printinteger_dot(t_flags *catch_flags, char *res)
 {
 	int	i;
 	int	n;
-	int negatif;
-	
+	int	negatif;
+
 	i = 0;
 	n = 0;
 	negatif = 0;
@@ -73,4 +73,3 @@ int	get_max(t_flags *catch_flags, char *res)
 		max = catch_flags->dot_val;
 	return (max);
 }
- 

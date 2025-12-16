@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printhexadecimal.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: florent <florent@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fmotte <fmotte@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 01:00:08 by marvin            #+#    #+#             */
-/*   Updated: 2025/12/13 02:31:11 by florent          ###   ########.fr       */
+/*   Updated: 2025/12/16 13:17:17 by fmotte           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ static int	printhexadecimal_minus(t_flags *catch_flags, int max)
 
 	i = 0;
 	n = 0;
-	while (i++ < catch_flags->number - max - catch_flags->plus - (catch_flags->sharp * 2)
-		&& catch_flags->minus)
+	while (i++ < catch_flags->number - max - catch_flags->plus
+		- (catch_flags->sharp * 2) && catch_flags->minus)
 		n += write(1, " ", 1);
 	return (n);
 }
@@ -45,11 +45,13 @@ static int	printhexadecimal_skip_begin(t_flags *catch_flags, int max)
 	n = 0;
 	i = 0;
 	while (i++ < catch_flags->number - max - catch_flags->space
-		- catch_flags->plus - (catch_flags->sharp * 2) && !catch_flags->minus && !catch_flags->zeros)
+		- catch_flags->plus - (catch_flags->sharp * 2) && !catch_flags->minus
+		&& !catch_flags->zeros)
 		n += write(1, " ", 1);
 	i = 0;
 	while (i++ < catch_flags->number - max - catch_flags->space
-		- catch_flags->plus - (catch_flags->sharp * 2) && !catch_flags->minus && catch_flags->zeros)
+		- catch_flags->plus - (catch_flags->sharp * 2) && !catch_flags->minus
+		&& catch_flags->zeros)
 		n += write(1, "0", 1);
 	return (n);
 }

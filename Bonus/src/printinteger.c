@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printinteger.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: florent <florent@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fmotte <fmotte@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 22:11:22 by marvin            #+#    #+#             */
-/*   Updated: 2025/12/13 02:08:14 by florent          ###   ########.fr       */
+/*   Updated: 2025/12/16 13:17:29 by fmotte           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int	printinteger_space(t_flags *catch_flags, int num)
 
 int	printinteger(t_flags *catch_flags, int num)
 {
-	int 	i;
+	int		i;
 	int		n;
 	int		max;
 	char	buff[32];
@@ -69,7 +69,7 @@ int	printinteger(t_flags *catch_flags, int num)
 	n += printinteger_dot(catch_flags, res);
 	i = 0;
 	if (num < 0)
-		i = 1;	
+		i = 1;
 	while (res[i] != '\0')
 	{
 		n += write(1, &res[i], 1);

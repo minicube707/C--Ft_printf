@@ -22,13 +22,12 @@ int	ft_printf(const char *str, ...)
 	i = 0;
 	n = 0;
 	va_start(args, str);
+	if (str == NULL)
+		return (-1);
 	while (str[i] != 0)
 	{
 		if (str[i] != '%')
-		{
-			write(1, &str[i], 1);
-			n++;
-		}
+			n += write(1, &str[i], 1);
 		else
 		{
 			l = verification(str[i + 1]);
